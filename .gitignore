@@ -2,3 +2,4 @@ docker-compose.yml
 sync.sh
 load/
 Dockerfile
+work/
