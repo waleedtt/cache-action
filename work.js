@@ -29,7 +29,7 @@ try {
 
   const { exec } = require("child_process");
 
-  exec("tar -cvzf test.gz {path}", (error, stdout, stderr) => {
+  exec("tar -cvzf test.gz "+path, (error, stdout, stderr) => {
       if (error) {
           console.log(`error: ${error.message}`);
           return;
