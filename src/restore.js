@@ -29,7 +29,7 @@ async function run(){
         tmpTarLocation = '/tmp/' + hashName;
 
 
-        heckKeyExists = await storage.listFilesByPrefix(gcsFile)
+        checkKeyExists = await storage.listFilesByPrefix(gcsFile)
         if (checkKeyExists.length == 0) {
             console.log(`::set-output name=cache-hit::0`);
         } else {
