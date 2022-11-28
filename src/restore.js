@@ -16,4 +16,24 @@ const restore_keys = core.getInput('restore-keys');
 const sa = core.getInput('sa');
 storage.setStorage(sa);
 
+async function run(){
+    try {
+        
+        keySantized = utils.keySantized(key);
+        pathArr = path.split('\n').map(el => el.trim());
+        pathAbsolute = pathArr.map(el => utils.pathResolve(el));
+        hashName = keySantized + '-' + utils.createHash(pathAbsolute.join(':')) + '.tar.gz';
+        gcsPath = repositoryName + '/' + branchName + '/';
+        gcsFile = gcsPath + hashName;
+        tmpTarLocation = '/tmp/' + hashName;
 
+        
+
+
+    } catch (error) {
+        console.log(error)
+        //core.setFailed(error.message);
+    }
+}
+
+run();
