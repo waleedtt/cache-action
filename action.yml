@@ -16,4 +16,4 @@ outputs:
     description: 'A boolean value to indicate an exact match was found for the primary key'
 runs:
   using: 'node16'
-  main: 'work.js'
+  main: 'testing.js'
