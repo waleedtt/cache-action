@@ -44,6 +44,7 @@ async function run(){
             //console.log(unTarCommand)
             utils.runCommand(unTarCommand);
             utils.runCommand("rm " + tmpTarLocation)
+            console.log("done")
         }
 
 
