@@ -29,7 +29,7 @@ async function run(){
 
         console.log(Buffer.from(sa).toString('base64'));
 
-        // checkKeyExists = await storage.listFilesByPrefix(gcsFile)
+        heckKeyExists = await storage.listFilesByPrefix(gcsFile)
         // if (checkKeyExists.length == 0) {
         //     console.log(`::set-output name=cache-hit::0`);
         // } else {
