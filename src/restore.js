@@ -28,7 +28,6 @@ async function run(){
         gcsFile = gcsPath + hashName;
         tmpTarLocation = '/tmp/' + hashName;
 
-
         checkKeyExists = await storage.listFilesByPrefix(gcsFile)
         if (checkKeyExists.length == 0) {
             console.log(`::set-output name=cache-hit::0`);
@@ -44,7 +43,6 @@ async function run(){
             //console.log(unTarCommand)
             utils.runCommand(unTarCommand);
             utils.runCommand("rm " + tmpTarLocation)
-            console.log("done")
         }
 
 
