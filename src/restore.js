@@ -27,6 +27,7 @@ async function run(){
         gcsFile = gcsPath + hashName;
         tmpTarLocation = '/tmp/' + hashName;
 
+        checkKeyExists = await storage.listFilesByPrefix(gcsFile)
         
 
 
