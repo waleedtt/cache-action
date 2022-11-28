@@ -13,6 +13,8 @@ workspace = githubJSON.workspace;
 const path = core.getInput('path');
 const key = core.getInput('key');
 const restore_keys = core.getInput('restore-keys');
+const sa = core.getInput('sa');
+storage.setStorage(sa);
 
 async function run(){
     try {

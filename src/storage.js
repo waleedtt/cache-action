@@ -1,7 +1,11 @@
 const Storage = require('@google-cloud/storage');
 
 const bucketName = 'cache-tt';
-const storage = new Storage.Storage();
+let storage;
+
+function setStorage(creds) { 
+    storage = new Storage.Storage({credentials: creds});
+}
 
 function listFilesTree() {
     async function listFiles() {
@@ -63,5 +67,5 @@ const uploadFile = async(filePath, destFileName, generationMatchPrecondition = 0
 }
 
 module.exports = {
-    listFilesTree, listFilesByPrefix, downloadFile, uploadFile
+    setStorage, listFilesTree, listFilesByPrefix, downloadFile, uploadFile
 };
