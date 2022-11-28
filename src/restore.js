@@ -14,7 +14,8 @@ const path = core.getInput('path');
 const key = core.getInput('key');
 const restore_keys = core.getInput('restore-keys');
 const sa = core.getInput('sa');
-storage.setStorage(sa);
+const saJSON = JSON.parse(sa)
+storage.setStorage(saJSON);
 
 async function run(){
     try {
