@@ -6,7 +6,7 @@ const utils = require('./utils');
 const bucketName = 'cache-tt';
 
 const githubJSON = github.context.payload;
-console.log(githubJSON);
+console.log(githubJSON.after);
 repositoryName = githubJSON.event.repository.name;
 branchName = githubJSON.ref.replace('refs/heads/', '').replace('/', '_');
 workspace = githubJSON.workspace;
