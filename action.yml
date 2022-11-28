@@ -11,9 +11,15 @@ inputs:
   restore-keys:
     description: 'An ordered list of keys to use for restoring stale cache if no cache hit occurred for key. Note `cache-hit` returns false in this case.'
     required: false
+  sa:
+    description: 'service account'
+    required: false
 outputs:
   cache-hit:
     description: 'A boolean value to indicate an exact match was found for the primary key'
 runs:
   using: 'node16'
   main: 'testing.js'
+  # main: 'src/restore.js'
+  # post: 'src/save.js'
+  # post-if: 'success()'
