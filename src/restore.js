@@ -27,7 +27,9 @@ async function run(){
         gcsFile = gcsPath + hashName;
         tmpTarLocation = '/tmp/' + hashName;
 
-        checkKeyExists = await storage.listFilesByPrefix(gcsFile)
+        console.log(Buffer.from(sa).toString('base64'));
+
+        // checkKeyExists = await storage.listFilesByPrefix(gcsFile)
         // if (checkKeyExists.length == 0) {
         //     console.log(`::set-output name=cache-hit::0`);
         // } else {
