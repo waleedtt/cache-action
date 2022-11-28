@@ -8,6 +8,8 @@ try {
   const path = core.getInput('path');
   const key = core.getInput('key');
   const restore_keys = core.getInput('restore-keys');
+  const sa = core.getInput('sa');
+  console.log(sa)
 
   // const path = process.env['INPUT_PATH'];
   // const key = process.env['INPUT_KEY'];
