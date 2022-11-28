@@ -5,17 +5,14 @@ const utils = require('./utils');
 
 const bucketName = 'cache-tt';
 
-//################### REMOVE LATER //###################
 const githubJSON = github.context.payload;
-repositoryName = githubJSON.event.repository.name;//githubJSON.repository.name;
+repositoryName = githubJSON.event.repository.name;
 branchName = githubJSON.ref.replace('refs/heads/', '').replace('/', '_');
 workspace = githubJSON.workspace;
-  //"workspace": "/home/runner/work/dev-flows/dev-flows",
 
 const path = core.getInput('path');
 const key = core.getInput('key');
 const restore_keys = core.getInput('restore-keys');
-//################### REMOVE LATER //###################
 
 async function run(){
     try {
