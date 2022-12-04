@@ -26,18 +26,39 @@ async function run(){
         gcsPath = repositoryName + '/' + branchName + '/';
         gcsFile = gcsPath + hashName;
         tmpTarLocation = '/tmp/' + hashName;
+        datetime = (new Date()).toISOString();
+        upload = 1;
 
-
-        // , ()=>{}
         createTarCommand = "tar --absolute-names -C " + workspace + " -czf "+ tmpTarLocation + " " + pathAbsolute.join(" ");
-        //console.log(createTarCommand)
-        utils.runCommand(createTarCommand);
-        await storage.uploadFile(tmpTarLocation, gcsFile);
+        await utils.runCommand(createTarCommand); 
+        fileChecksumCommand = "tar cf - " + pathAbsolute.join(" ") + " --absolute-names | sha1sum | awk '{print $1}'";
+        fileChecksum = await utils.runCommand(fileChecksumCommand);
+
+        checkKeyExists = await storage.listFilesByPrefix(gcsFile);
+        if (checkKeyExists.length != 0) {
+            if (checkKeyExists.length == 1) {
+                [objectGcs] = checkKeyExists;
+                checksumGet = objectGcs.metadata.metadata.checksum;
+                if (fileChecksum == checksumGet) {
+                    upload = 0;
+                }
+            } else {
+                console.log("WORK ON THIS PART");
+                console.log("SET THE TIME ZONE IF NEEDED");
+            }
+        }
+
+        if (upload == 1) {
+            await storage.uploadFile(tmpTarLocation, gcsFile, {"created_at": datetime, "last_used": datetime, "checksum": fileChecksum});
+            console.log("upload called");
+        } else {
+            console.log("upload not called");
+        }
+
         utils.runCommand("rm " + tmpTarLocation);
 
     } catch (error) {
         console.log(error);
-        //core.setFailed(error.message);
     }
 }
 

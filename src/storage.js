@@ -1,23 +1,25 @@
 const Storage = require('@google-cloud/storage');
 
 const bucketName = 'cache-tt';
-let storage;
 
+let storage;
 function setStorage(creds) { 
     storage = new Storage.Storage({credentials: creds});
 }
 
+// NOT IN USE REMOVE IT LATER
 function listFilesTree() {
     async function listFiles() {
         const [files] = await storage.bucket(bucketName).getFiles();
         console.log('Files:');
         files.forEach(file => {
-        console.log(file.name);
+            console.log(file.name);
         });
     }
 
     listFiles().catch(console.error);
 }
+// NOT IN USE REMOVE IT LATER
 
 const listFilesByPrefix = async(prefix, delimiter = '/') => {
     const options = {
@@ -34,6 +36,28 @@ const listFilesByPrefix = async(prefix, delimiter = '/') => {
     //listFilesByPrefix().catch(console.error);
 }
 
+// MOVE TO UTILS
+const checkKeyExists = async(key) => {
+    keyReturn = await listFilesByPrefix(key);
+    //console.log('keyReturn',keyReturn);
+    if (keyReturn.length == 0) {
+        return false;
+    } else { 
+        keysList = [];
+        keyReturn.forEach(file => {
+            let obj = file.metadata.metadata;
+            obj['name'] = file.name;
+            keysList.push(obj);
+        });
+        latestDate = keysList.map(function(e) { return new Date(e.created_at); }).sort().reverse()[0];
+        latestOjb = keysList.filter( e => { 
+            let d = new Date( e.created_at ); 
+            return d.getTime() == latestDate.getTime();
+        })[0];
+        //console.log('latestOjb',latestOjb);
+        return latestOjb;
+    }
+}
 
 const downloadFile = async(fileName, destFileName) => {
   
@@ -48,10 +72,13 @@ const downloadFile = async(fileName, destFileName) => {
     // );
 }
 
-const uploadFile = async(filePath, destFileName, generationMatchPrecondition = 0) => {
+const uploadFile = async(filePath, destFileName, customMetadata = {}, generationMatchPrecondition = 0) => {
 
       const options = {
         destination: destFileName,
+        metadata: {
+            metadata: customMetadata,
+        }
         // Optional:
         // Set a generation-match precondition to avoid potential race conditions
         // and data corruptions. The request to upload is aborted if the object's
@@ -66,6 +93,16 @@ const uploadFile = async(filePath, destFileName, generationMatchPrecondition = 0
       //console.log(`${filePath} uploaded to ${bucketName}`);
 }
 
+const setMetadata = async(fileName ,metadata, generationMatchPrecondition = 0)=> {
+    const options = {
+        //ifGenerationMatch: generationMatchPrecondition,
+    };
+    const [metadataResponse] = await storage.bucket(bucketName).file(fileName).setMetadata({
+        metadata: metadata,
+    },options);
+    return metadataResponse;
+}
+
 module.exports = {
-    setStorage, listFilesTree, listFilesByPrefix, downloadFile, uploadFile
+    setStorage, listFilesTree, listFilesByPrefix, downloadFile, uploadFile, checkKeyExists, setMetadata
 };
