@@ -56,7 +56,7 @@ try {
       console.log(`stdout: ${stdout}`);
   });
 
-  exec("(pwd)", (error, stdout, stderr) => {
+  exec("pwd", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -66,7 +66,9 @@ try {
         return;
     }
     console.log(`stdout: ${stdout}`);
-});
+    });
+
+    exec("printenv", (error, stdout, stderr) => {console.log(`stdout: ${stdout}`);});
 
 } catch (error) {
   core.setFailed(error.message);
