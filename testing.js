@@ -68,7 +68,7 @@ try {
     console.log(`stdout: ${stdout}`);
     });
 
-    exec("printenv", (error, stdout, stderr) => {console.log(`stdout: ${stdout}`);});
+    //exec("printenv", (error, stdout, stderr) => {console.log(`stdout: ${stdout}`);});
 
 } catch (error) {
   core.setFailed(error.message);
