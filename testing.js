@@ -55,7 +55,7 @@ try {
       console.log(`stdout: ${stdout}`);
   });
 
-  exec("pwd", (error, stdout, stderr) => {
+  exec("ls -la $(pwd)", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
