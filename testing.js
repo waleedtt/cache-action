@@ -26,9 +26,9 @@ try {
   core.setOutput("cache-hit", 1);
 
   // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
+  const payload = JSON.stringify(github.context, undefined, 2)
   console.log(`The event payload: ${payload}`);
-  console.log(Buffer.from(payload).toString('base64'));
+  //console.log(Buffer.from(payload).toString('base64'));
 
   const { exec } = require("child_process");
 
@@ -56,7 +56,7 @@ try {
       console.log(`stdout: ${stdout}`);
   });
 
-  exec("ls -la $(pwd)", (error, stdout, stderr) => {
+  exec("(pwd)", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
