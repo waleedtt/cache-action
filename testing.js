@@ -2,12 +2,12 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 
-core.debug('Inside try block');
-core.info('Output to the actions build log')
-core.warning('myInput was not set');
-core.notice('This is a message that will also emit an annotation')
-core.error(`Errorasd, action may still succeed though`);
-core.setFailed("test");
+// core.debug('Inside try block');
+// core.info('Output to the actions build log')
+// core.warning('myInput was not set');
+// core.notice('This is a message that will also emit an annotation')
+// core.error(`Errorasd, action may still succeed though`);
+// core.setFailed("test");
 
 try {
 

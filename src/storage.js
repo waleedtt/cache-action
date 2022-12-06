@@ -4,7 +4,7 @@ const bucketName = 'cache-tt';
 
 let storage;
 function setStorage(creds) { 
-    storage = new Storage.Storage({credentials: creds});
+    storage = new Storage.Storage();
 }
 
 // NOT IN USE REMOVE IT LATER
