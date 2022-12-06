@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 
-core.setFailed("test");
+
 try {
 
   const path = core.getInput('path');
