@@ -17,9 +17,11 @@ try {
   const sa = core.getInput('sa');
 
 
+  core.info(`path: ${path}`);
+  core.info(`key: ${key}`);
+  core.info(`restore-keys: ${restore_keys}`);
 
 
-  console.log(path, key, restore_keys)
 
   // const path = process.env['INPUT_PATH'];
   // const key = process.env['INPUT_KEY'];
