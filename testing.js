@@ -13,7 +13,7 @@ try {
 
   const path = core.getInput('path');
   const key = core.getInput('key');
-  const restore_keys = core.getInput('restore_keys');
+  const restore_keys = core.getInput('restore-keys');
   const sa = core.getInput('sa');
 
 
