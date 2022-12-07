@@ -44,41 +44,41 @@ try {
 
   const { exec } = require("child_process");
 
-  exec("tar -cvzf test.gz "+path, (error, stdout, stderr) => {
-      if (error) {
-          console.log(`error: ${error.message}`);
-          return;
-      }
-      if (stderr) {
-          console.log(`stderr: ${stderr}`);
-          return;
-      }
-      console.log(`stdout: ${stdout}`);
-  });
+//   exec("tar -cvzf test.gz "+path, (error, stdout, stderr) => {
+//       if (error) {
+//           console.log(`error: ${error.message}`);
+//           return;
+//       }
+//       if (stderr) {
+//           console.log(`stderr: ${stderr}`);
+//           return;
+//       }
+//       console.log(`stdout: ${stdout}`);
+//   });
 
-  exec("whoami", (error, stdout, stderr) => {
-      if (error) {
-          console.log(`error: ${error.message}`);
-          return;
-      }
-      if (stderr) {
-          console.log(`stderr: ${stderr}`);
-          return;
-      }
-      console.log(`stdout: ${stdout}`);
-  });
+//   exec("whoami", (error, stdout, stderr) => {
+//       if (error) {
+//           console.log(`error: ${error.message}`);
+//           return;
+//       }
+//       if (stderr) {
+//           console.log(`stderr: ${stderr}`);
+//           return;
+//       }
+//       console.log(`stdout: ${stdout}`);
+//   });
 
-  exec("echo $RUNNER_TEMP", (error, stdout, stderr) => {
-    if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-    }
-    if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-    }
-    console.log(`stdout: ${stdout}`);
-    });
+//   exec("echo $RUNNER_TEMP", (error, stdout, stderr) => {
+//     if (error) {
+//         console.log(`error: ${error.message}`);
+//         return;
+//     }
+//     if (stderr) {
+//         console.log(`stderr: ${stderr}`);
+//         return;
+//     }
+//     console.log(`stdout: ${stdout}`);
+//   });
 
     //exec("printenv", (error, stdout, stderr) => {console.log(`stdout: ${stdout}`);});
 
