@@ -19,7 +19,7 @@ outputs:
     description: 'A boolean value to indicate an exact match was found for the primary key'
 runs:
   using: 'node16'
-  # main: 'testing.js'
-  main: 'src/restore.js'
-  post: 'src/save.js'
-  post-if: 'success()'
+  main: 'testing.js'
+  # main: 'src/restore.js'
+  # post: 'src/save.js'
+  # post-if: 'success()'
