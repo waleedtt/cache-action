@@ -29,9 +29,9 @@ try {
 
   //console.log(process.env);
 
-  console.log(`path ${path}!`);
-  console.log(`key ${key}!`);
-  console.log(`restore-keys ${restore_keys}!`);
+//   console.log(`path ${path}!`);
+//   console.log(`key ${key}!`);
+//   console.log(`restore-keys ${restore_keys}!`);
   
   // console.log(`::set-output name=cache-hit::1`);
   
