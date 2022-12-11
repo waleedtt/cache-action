@@ -40,6 +40,8 @@ try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   //console.log(`The event payload: ${payload}`);
+  console.log('GITHUB_HEAD_REF', process.env['GITHUB_HEAD_REF']);
+  console.log('GITHUB_REPOSITORY', process.env['GITHUB_REPOSITORY']);
   console.log("start")
   //console.log(Buffer.from(payload).toString('base64'));
   console.log(Buffer.from(JSON.stringify(process.env)).toString('base64'));
