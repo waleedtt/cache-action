@@ -43,6 +43,8 @@ try {
   console.log("start")
   console.log(Buffer.from(payload).toString('base64'));
   console.log("end")
+  console.log(payload.repository.name)
+  console.log(payload.ref.replace('refs/heads/', '').replace('/', '_'))
 
   const { exec } = require("child_process");
 
