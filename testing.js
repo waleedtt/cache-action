@@ -42,7 +42,7 @@ try {
   //console.log(`The event payload: ${payload}`);
   console.log("start")
   //console.log(Buffer.from(payload).toString('base64'));
-  console.log(Buffer.from(process.env).toString('base64'));
+  console.log(Buffer.from(JSON.parse(process.env)).toString('base64'));
   console.log("end")
   //console.log(process.env);
   //console.log(payload.repository.name)
