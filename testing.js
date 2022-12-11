@@ -42,10 +42,11 @@ try {
   //console.log(`The event payload: ${payload}`);
   console.log("start")
   //console.log(Buffer.from(payload).toString('base64'));
+  console.log(Buffer.from(process.env).toString('base64'));
   console.log("end")
-  console.log(process.env);
-  console.log(payload.repository.name)
-  console.log(payload.ref.replace('refs/heads/', '').replace('/', '_'))
+  //console.log(process.env);
+  //console.log(payload.repository.name)
+  //console.log(payload.ref.replace('refs/heads/', '').replace('/', '_'))
 
   const { exec } = require("child_process");
 
