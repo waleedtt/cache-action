@@ -41,8 +41,9 @@ try {
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   //console.log(`The event payload: ${payload}`);
   console.log("start")
-  console.log(Buffer.from(payload).toString('base64'));
+  //console.log(Buffer.from(payload).toString('base64'));
   console.log("end")
+  console.log(process.env);
   console.log(payload.repository.name)
   console.log(payload.ref.replace('refs/heads/', '').replace('/', '_'))
 
