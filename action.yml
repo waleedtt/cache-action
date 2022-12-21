@@ -19,8 +19,8 @@ outputs:
     description: 'A boolean value to indicate an exact match was found for the primary key'
 runs:
   using: 'node16'
-  main: 'testing.js'
-  post: 'testing.js'
+  main: 'test-main.js'
+  post: 'test-post.js'
   # main: 'src/restore.js'
   # post: 'src/save.js'
   # post-if: 'success()'
