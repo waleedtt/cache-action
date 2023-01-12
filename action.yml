@@ -20,7 +20,7 @@ outputs:
 runs:
   using: 'node16'
   main: 'test-main.js'
-  post: 'test-post.js'
+  #post: 'test-post.js'
   # main: 'src/restore.js'
   # post: 'src/save.js'
   # post-if: 'success()'

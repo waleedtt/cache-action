@@ -1,6 +1,9 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
+console.log("start1")
+console.log(process.env);
+console.log("end1")
 
 console.log("start")
 core.saveState("test", 12345);
