@@ -12,7 +12,7 @@ console.log("GITHUB_ACTION_REF:", process.env['GITHUB_ACTION_REF']);
 console.log("end2")
 
 
-
+console.log(github)
 
 console.log("start1")
 console.log(process.env);
