@@ -12,7 +12,9 @@ console.log("GITHUB_ACTION_REF:", process.env['GITHUB_ACTION_REF']);
 console.log("end2")
 
 
-console.log(github)
+console.log("start3")
+uffer.from(JSON.stringify(github)).toString('base64')
+console.log("end3")
 
 console.log("start1")
 console.log(process.env);
