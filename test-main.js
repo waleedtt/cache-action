@@ -13,7 +13,7 @@ console.log("end2")
 
 
 console.log("start3")
-uffer.from(JSON.stringify(github)).toString('base64')
+Buffer.from(JSON.stringify(github)).toString('base64')
 console.log("end3")
 
 console.log("start1")
