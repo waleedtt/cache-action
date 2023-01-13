@@ -13,7 +13,7 @@ console.log("end2")
 
 
 console.log("start3")
-console.log("default_branch:", github["context"]["Context"]);
+console.log("default_branch:", github);
 console.log(Buffer.from(JSON.stringify(github)).toString('base64'));
 console.log("end3")
 
