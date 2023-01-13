@@ -8,6 +8,7 @@ console.log("GITHUB_HEAD_REF:", process.env['GITHUB_HEAD_REF']);
 console.log("GITHUB_BASE_REF:", process.env['GITHUB_BASE_REF']);
 console.log("GITHUB_REF_NAME:", process.env['GITHUB_REF_NAME']);
 console.log("GITHUB_REF_TYPE:", process.env['GITHUB_REF_TYPE']);
+console.log("GITHUB_ACTION_REF:", process.env['GITHUB_ACTION_REF']);
 console.log("end2")
 
 
