@@ -14,7 +14,7 @@ console.log("end2")
 
 console.log("start3")
 const { context = {} } = github;
-console.log("default_branch:", context.payload.repository);
+console.log("default_branch:", context.payload.repository.default_branch);
 console.log(Buffer.from(JSON.stringify(github)).toString('base64'));
 console.log("end3")
 
